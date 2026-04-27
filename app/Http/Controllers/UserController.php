@@ -27,11 +27,6 @@ class UserController extends Controller
         return redirect()->route('admin.dashboard');
     }
     }
-    public function post(){
-        return view('admin.post');
-    }
-    public function createpost(){
-        return view('admin.createpost');
-    }
+
     
 }

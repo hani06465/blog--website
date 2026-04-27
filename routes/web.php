@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Models\User;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\AdminController;
 
 
 Route::get('/', function () {
@@ -17,9 +18,8 @@ Route::get('admin/dashboard/post',[UserController::class,'post'])->middleware('a
 
 Route::prefix('admin')->middleware(['auth','admin'])->group(function(){
     Route::get('/dashboard',[UserController::class,'index'])->name('admin.dashboard');
-    Route::get('/dashboard/post',[UserController::class,'post']);
-    Route::get('/dashboard/createpost',[UserController::class,'createpost'])->name('hani');
-
+    
+    Route::get('/dashboard/addPost',[AdminController::class,'addpost'])->name('admin.Addpost');
 });
 
 
