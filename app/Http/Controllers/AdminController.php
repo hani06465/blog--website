@@ -28,6 +28,7 @@ class AdminController extends Controller
         if($post->save()){
             // since we can't save the image in data base we are to store it in the public repostiry by creating folder called img:
             $request->image->move('img',$imagename);
+            return redirect()->route('admin.Addpost')->with('status','Added successfully!');
         }
     }
 }

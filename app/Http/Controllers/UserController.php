@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Models\Post;
 
 class UserController extends Controller
 {
@@ -26,6 +27,11 @@ class UserController extends Controller
         
         return redirect()->route('admin.dashboard');
     }
+    }
+
+    public function showDataInHome(){
+        $post = Post::all();
+        return view('home',compact('post'));
     }
 
     

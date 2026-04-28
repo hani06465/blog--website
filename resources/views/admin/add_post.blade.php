@@ -13,6 +13,11 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900" style="text-align:center; border:1px solid blue; ">
+                @if(session('status'))
+                    <div style="background-color:lightgreen;" class="alert alert-success">
+                        {{session('status')}}
+                    </div>
+                @endif
                     <form action="{{ route('admin.createpost') }}" method='post' enctype="multipart/form-data">
                         @csrf
                         <input type="text" name="title" placeholder="Enter post Title here!"><br><br><br>
