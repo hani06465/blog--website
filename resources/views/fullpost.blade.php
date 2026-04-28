@@ -18,7 +18,7 @@
                     <a href="">Blog</a>
                     <a href="">About</a>
                     <a href="">Contact</a>
-                     @if (Route::has('login'))
+                    @if (Route::has('login'))
                     @auth
                         <a
                             href="{{route('dashboard')}}"
@@ -27,9 +27,8 @@
                             Dashboard
                         </a>
                     @else
-                   
                     <a href="{{route('login')}}">Login</a>
-                      @endauth
+                    @endauth
 
                     @endif
                 </div>
@@ -48,31 +47,32 @@
 
     <!-- Featured Posts -->
     <div class="container">
-        <h2 class="section-title">Featured Posts</h2>
+        <h2 class="section-title">All Posts</h2>
         <div class="featured-posts">
-            <!--All Post -->
-            @foreach($post as $posts)
-            <div class="post-card">
-                <div class="post-image">
-                    <img src="img/{{ $posts->image }}" alt="Laravel Tips">
-                </div>
-                <div class="post-content">
-                    <div class="post-meta">
-                        <span>{{ $posts->created_at }}</span>
-                        
-                    </div>
-                    <h3 class="post-title">{{ $posts->title }}</h3>
-                <?php /* this shows the full post */ ?>
-                 <!--   <p class="post-excerpt">{{ $posts->description }}...</p> -->
-                <?php /*this shows the short post */ ?>
-                    <p class="post-excerpt">{{ Str::limit($posts->description,100)}}...</p>
+            <!-- single Post  -->
 
-                    <a href="{{ route('fullpost',$posts->id) }}" class="read-more">Read More →</a>
+            <div class="max-w-4xl mx-auto px-4 py-8">
+                <!-- Post Header -->
+                <div class="mb-8">
+                    <h1 class="text-3xl font-bold text-gray-900 mb-2">{{ $post->title }}</h1>
+                    <div class="flex items-center text-gray-500 text-sm">
+                        <span>Published on {{ $post->created_at->format('F j, Y') }}</span>
+                        <span class="mx-2">•</span>
+                    </div>
+                </div>
+
+                <!-- Featured Image -->
+                @if($post->image)
+                <div class="mb-8 rounded-lg overflow-hidden">
+                    <img style="width: 800px;" src="{{ asset('img/' . $post->image) }}" alt="{{ $post->title }}" class="w-full h-auto object-cover">
+                </div>
+                @endif
+
+                <!-- Post Content -->
+                <div class="prose max-w-none mb-12">
+                    {!! $post->description !!}
                 </div>
             </div>
-            @endforeach
-
-           
         </div>
 
         <!-- Categories -->

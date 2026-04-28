@@ -8,6 +8,7 @@ use App\Http\Controllers\AdminController;
 
 
 Route::get('/',[UserController::class,'showDataInhome'])->name('home');
+Route::get('/fullpost/{id}',[UserController::class,'showFullPost'])->name('fullpost');
 
 Route::get('/dashboard',[UserController::class,'home'])->middleware('auth', 'verified')->name('dashboard');
 

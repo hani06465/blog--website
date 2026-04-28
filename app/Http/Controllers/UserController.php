@@ -33,6 +33,10 @@ class UserController extends Controller
         $post = Post::all();
         return view('home',compact('post'));
     }
+    public function showFullPost($id){
+        $post = Post::findOrFail($id);
+        return view('fullpost',compact('post'));
+    }
 
     
 }
