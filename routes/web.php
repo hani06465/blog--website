@@ -21,6 +21,8 @@ Route::prefix('admin')->middleware(['auth','admin'])->group(function(){
     Route::get('/dashboard/addPost',[AdminController::class,'addpost'])->name('admin.Addpost');
 
     Route::post('/dashboard/addPost',[AdminController::class,'createpost'])->name('admin.createpost');
+    Route::get('/dashboard/allpost',[AdminController::class,'allpost'])->name('admin.allpost');
+    
 });
 
 

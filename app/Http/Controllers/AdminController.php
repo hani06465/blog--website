@@ -31,4 +31,8 @@ class AdminController extends Controller
             return redirect()->route('admin.Addpost')->with('status','Added successfully!');
         }
     }
+    public function allpost(){
+        $post = Post::all();
+        return view('admin.allpost',compact('post'));
+    }
 }
