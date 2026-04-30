@@ -76,26 +76,11 @@
         </div>
 
         <!-- Categories -->
-        <h2 class="section-title">Browse Categories</h2>
-        <div class="categories">
-            <a href="/category/laravel" class="category-tag">Laravel</a>
-            <a href="/category/php" class="category-tag">PHP</a>
-            <a href="/category/javascript" class="category-tag">JavaScript</a>
-            <a href="/category/vue" class="category-tag">Vue.js</a>
-            <a href="/category/tailwind" class="category-tag">Tailwind CSS</a>
-            <a href="/category/testing" class="category-tag">Testing</a>
-            <a href="/category/deployment" class="category-tag">Deployment</a>
-            <a href="/category/performance" class="category-tag">Performance</a>
-        </div>
-
-        <!-- Newsletter -->
+        
+        <!-- add comments here -->
         <div class="newsletter">
-            <h3>Subscribe to our Newsletter</h3>
-            <p>Get the latest articles and news delivered to your inbox every week. No spam, ever.</p>
-            <form class="newsletter-form">
-                <input type="email" placeholder="Your email address" required>
-                <button type="submit">Subscribe</button>
-            </form>
+            <!-- we add this for commenting -->
+           <livewire:comments :model="$post"/>
         </div>
     </div>
 
