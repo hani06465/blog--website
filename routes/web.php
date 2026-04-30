@@ -21,8 +21,14 @@ Route::prefix('admin')->middleware(['auth','admin'])->group(function(){
     Route::get('/dashboard/addPost',[AdminController::class,'addpost'])->name('admin.Addpost');
 
     Route::post('/dashboard/addPost',[AdminController::class,'createpost'])->name('admin.createpost');
+
     Route::get('/dashboard/allpost',[AdminController::class,'allpost'])->name('admin.allpost');
-    
+
+    Route::get('/dashboard/allpost/{id}',[AdminController::class,'updatePost'])->name('admin.update');
+    // change get to post and there were no id 
+    Route::post('/dashboard/allpost/{id}',[AdminController::class,'postupdate'])->name('admin.postupdate');
+    Route::get('/dashboard/deletepost/{id}',[AdminController::class,'deletePost'])->name('admin.deletepost');
+     Route::post('/dashboard/deletepost/{id}',[AdminController::class,'postDelete'])->name('admin.postdelete');
 });
 
 
